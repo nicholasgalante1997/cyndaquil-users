@@ -27,7 +27,7 @@
     "typescript": "^4.9.5"
   },
   "dependencies": {
-    "@nickgdev/porygon-metlib": "1.0.4",
+    "@nickgdev/porygon-metlib": "^1.0.7",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
