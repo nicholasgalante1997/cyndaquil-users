@@ -12,7 +12,7 @@ export class DatabaseManager {
     return mysql.createConnection(this._config);
   }
 
-  async query(query: string, values?: string[]) {
+  async query(query: string, values?: string[]): Promise<mysql.Query> {
     const connection = this.connect();
     console.log(`connected as id ${connection.threadId}`);
     if (values) {

@@ -1,5 +1,4 @@
 import { server } from './server';
-import { Metric } from '@nickgdev/porygon-metlib/lib/node-exports';
 import dotenv from 'dotenv';
 
 dotenv.config();
