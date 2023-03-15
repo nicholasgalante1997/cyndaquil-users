@@ -11,9 +11,11 @@ services:
       - NODE_ENV=production
       - PORT=8080
     image: cyndaquil-users:latest
+    depends_on:
+      - mysql_db
     networks:
       - hoennetwork
-  mysql:
+  mysql_db:
     platform: linux/x86_64
     image: mysql:5.7
     restart: on-failure
@@ -23,7 +25,7 @@ services:
       - MYSQL_USER=cyndaquil-api
       - MYSQL_PASSWORD=cyndaquilapi-example-auth-token-x
     ports:
-      - '3306:3306'
+      - '3307:3306'
     volumes: 
       - db-config:/etc/mysql 
       - db-data:/var/lib/mysql 
