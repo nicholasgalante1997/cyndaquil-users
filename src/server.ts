@@ -2,7 +2,7 @@ import dotenv from 'dotenv';
 import { createServer, Server } from 'http';
 import express from 'express';
 import cors from 'cors';
-import { MetricSync } from '@nickgdev/porygon-metlib/lib/node-exports';
+import { MetricSync } from '@nickgdev/porygon-metlib/lib';
 
 dotenv.config(); 
 
