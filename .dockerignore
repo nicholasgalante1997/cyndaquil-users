@@ -1,4 +1,9 @@
 node_modules
-.env
 .gitignore
 yarn.lock
+lib
+.bin
+.git/
+.dockerignore
+Dockerfile
+docker-compose.yml

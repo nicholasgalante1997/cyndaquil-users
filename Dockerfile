@@ -1,6 +1,8 @@
-FROM node:18-alpine
+FROM node:19.0.0-buster-slim
 
-WORKDIR /app 
+RUN mkdir -p /app/services/cyndaquil
+
+WORKDIR /app/services/cyndaquil
 
 COPY ./package.json .
 
@@ -10,7 +12,16 @@ COPY ./tsconfig.json .
 
 COPY ./src/ ./src/
 
+COPY ./.env ./.env
+
 RUN npm run build
+
+RUN rm -rf \
+    node_modules \
+    src \
+    tsconfig.json
+
+RUN npm install --only=production
 
 ENV PORT=8080
 

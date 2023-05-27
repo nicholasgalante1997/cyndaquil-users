@@ -1,16 +1,21 @@
 version: '3.8'
 
 services:
-  cyndaquil-users:
+  cyndaquil:
+    image: cyndaquil-users-service:latest
     build:
       context: .
       dockerfile: ./Dockerfile
     ports:
       - '8080:8080'
+    env_file: .env
     environment:
       - NODE_ENV=production
       - PORT=8080
-    image: cyndaquil-users:latest
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
     depends_on:
       - mysql_db
     networks:
@@ -19,11 +24,12 @@ services:
     platform: linux/x86_64
     image: mysql:5.7
     restart: on-failure
+    env_file: .env
     environment:
-      - MYSQL_ROOT_PASSWORD=examplepassword
-      - MYSQL_DATABASE=users
-      - MYSQL_USER=cyndaquil-api
-      - MYSQL_PASSWORD=cyndaquilapi-example-auth-token-x
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
     ports:
       - '3307:3306'
     volumes: 
