@@ -1,15 +1,15 @@
 import { Request, Response, NextFunction } from 'express';
 
 export function trace(req: Request, _res: Response, next: NextFunction) {
-    const { headers } = req;
+  const { headers } = req;
 
-    const userAgent = headers['user-agent'];
-    const referer = headers['referer'];
-    const acceptLanguage = headers['accept-language'];
-    const contentType = headers['content-type'];
-    const contentEncoding = headers['content-encoding'];
+  const userAgent = headers['user-agent'];
+  const referer = headers['referer'];
+  const acceptLanguage = headers['accept-language'];
+  const contentType = headers['content-type'];
+  const contentEncoding = headers['content-encoding'];
 
-    const t = `
+  const t = `
     [INFO]: reqline
     *************************************
     user-agent: ${userAgent}
@@ -21,7 +21,7 @@ export function trace(req: Request, _res: Response, next: NextFunction) {
     
     `;
 
-    console.log(t);
+  console.log(t);
 
-    next();
+  next();
 }

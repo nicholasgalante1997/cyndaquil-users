@@ -14,10 +14,8 @@ services:
     environment:
       - NODE_ENV=production
       - PORT=8080
-      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
-      - MYSQL_DATABASE=${MYSQL_DATABASE}
-      - MYSQL_USER=${MYSQL_USER}
-      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=examplepassword
+      - MYSQL_DATABASE=users
     depends_on:
       - mysql_db
     networks:
@@ -28,10 +26,8 @@ services:
     restart: on-failure
     env_file: .env
     environment:
-      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
-      - MYSQL_DATABASE=${MYSQL_DATABASE}
-      - MYSQL_USER=${MYSQL_USER}
-      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=examplepassword
+      - MYSQL_DATABASE=users
     ports:
       - '3307:3306'
     volumes: 
