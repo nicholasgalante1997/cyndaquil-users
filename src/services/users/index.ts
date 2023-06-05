@@ -17,7 +17,6 @@ export class UserService implements IModel<UserDAO> {
       item.email,
       item.salted_password,
     ]);
-    console.log({ entry });
     return {
       email: '',
       salted_password: '',
