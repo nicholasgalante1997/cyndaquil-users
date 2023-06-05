@@ -1,5 +1,5 @@
 export type UserDAO = {
-  user_id: string;
+  userId: string;
   email: string;
-  salted_password: string;
+  password: string;
 };
