@@ -1,4 +1,4 @@
-export type SQLCreateQueryResult = { result: boolean; err?: string };
+export type SQLCreateQueryResult<T = any> = { result: boolean; err?: string; data?: T };
 
 export interface IModel<T> {
   _tableName: string;
